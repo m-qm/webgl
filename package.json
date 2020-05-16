@@ -2,15 +2,24 @@
   "name": "webgl",
   "version": "1.0.0",
   "description": "",
-  "main": "sketch.js",
+  "main": "index.js",
+  "dependencies": {
+    "canvas-sketch": "^0.7.3",
+    "three": "^0.116.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-qm/webgl.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "canvas-sketch": "^0.7.3",
-    "three": "^0.116.1"
-  }
+  "bugs": {
+    "url": "https://github.com/m-qm/webgl/issues"
+  },
+  "homepage": "https://github.com/m-qm/webgl#readme"
 }

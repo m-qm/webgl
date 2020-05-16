@@ -39,7 +39,9 @@ const sketch = ({context}) => {
   const texture = new THREE.TextureLoader ().load ('earth.jpg');
 
   // Setup a material
-  const material = new THREE.MeshBasicMaterial ({
+  const material = new THREE.MeshStandardMaterial ({
+    roghness: 1,
+    metalness: 0,
     map: texture,
   });
 
@@ -47,12 +49,15 @@ const sketch = ({context}) => {
   const mesh = new THREE.Mesh (geometry, material);
   scene.add (mesh);
 
-  moonGroup = new THREE.Group ();
+  const moonGroup = new THREE.Group ();
 
+  // equirerectangular pictures examples
   const moonTexture = new THREE.TextureLoader ().load ('moon.jpg');
 
-  const moonMaterial = new THREE.MeshBasicMaterial ({
+  const moonMaterial = new THREE.MeshStandardMaterial ({
     map: moonTexture,
+    roghness: 1,
+    metalness: 0,
   });
 
   const moonMesh = new THREE.Mesh (geometry, moonMaterial);
@@ -61,6 +66,15 @@ const sketch = ({context}) => {
   moonGroup.add (moonMesh);
 
   scene.add (moonGroup);
+  // gpgpu + threejs  => check for examples with
+
+  const light = new THREE.PointLight ('pink', 1);
+  light.position.set (0, 2, 5);
+  moonGroup.add (light);
+
+  // scene.add (new THREE.PointLightHelper (light, '0.1'));
+  // scene.add (new THREE.GridHelper (5, 50));
+  // scene.add (new THREE.AxesHelper (5, 50));
 
   // draw each frame
   return {
